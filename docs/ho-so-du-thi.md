@@ -72,7 +72,7 @@ Prompt được chia theo nhiệm vụ, ràng buộc và dữ liệu. Phần nhi
 
 ### URL video giới thiệu
 
-Chờ cập nhật sau khi xuất bản video. Video được dựng từ ảnh chụp các trạng thái thực của demo, có chú thích, không có lời thoại. Không phải bản ghi thao tác liên tục.
+https://viet-phuc-remix-arena.t-rue0802370923999.chatgpt.site/video — dùng sau khi xác nhận triển khai thành công. Video được dựng từ ảnh chụp các trạng thái thực của demo, có chú thích, không có lời thoại. Không phải bản ghi thao tác liên tục.
 
 ### URL demo
 
@@ -96,3 +96,4 @@ Chưa có. Đội cần thực hiện cuộc trò chuyện thực tế trên Gem
 
 - Vietnam Tourism: https://www.vietnam.travel/vi/things-to-do/all-about-ao-dai-vietnams-national-dress
 - Google AI for Developers, structured output: https://ai.google.dev/gemini-api/docs/generate-content/structured-output
+
