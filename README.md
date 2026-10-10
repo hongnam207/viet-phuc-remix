@@ -14,7 +14,11 @@ npm start
 
 Mở http://localhost:4173. Mặc định gợi ý dựa trên quy tắc biên tập. Để gọi Gemini, đặt biến môi trường `GEMINI_API_KEY` ở máy chủ, tùy chọn `GEMINI_MODEL` (mặc định `gemini-2.5-flash`), rồi khởi động lại. Không nhập khóa vào trình duyệt hoặc commit khóa. Trên Sites, cấu hình biến tương ứng bằng runtime secrets.
 
-## Phạm vi
+## Triển khai Render
+
+`render.yaml` cấu hình Node Web Service ở Singapore, gói Free, build `npm run build`, start `npm start`, health check `/healthz`. Máy chủ đọc `PORT`, lắng nghe `0.0.0.0` và dùng `RENDER_EXTERNAL_URL` để xử lý Origin sau HTTPS proxy. Xem `docs/deploy-render.md`.
+
+## Phạm vi demo
 
 - Áo dài hiện đại và áo dài cách tân. SVG là minh họa, không mô phỏng chất liệu, số đo hoặc phục dựng lịch sử.
 - Bốn sự kiện; ba phong cách; sáu màu áo; ba màu quần; sáu phụ kiện; hai nhân vật.
