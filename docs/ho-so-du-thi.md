@@ -42,7 +42,7 @@ Luồng xử lý: người dùng chọn → chuẩn hóa trạng thái → cập
 
 Lookbook sử dụng localStorage của trình duyệt. Liên kết chia sẻ chứa trạng thái phối đồ trong query string; người mở nhận lại đúng các lựa chọn hợp lệ. Nút tải xuất SVG độc lập. Dữ liệu không được đồng bộ giữa thiết bị.
 
-Máy chủ local chạy bằng Node.js; bản đóng gói là một Cloudflare Worker ESM chứa giao diện và API để triển khai trên Sites. Khóa Gemini chỉ đọc từ biến môi trường máy chủ. API kiểm tra phương thức, nguồn yêu cầu và giới hạn độ dài đầu vào, có timeout; giao diện đưa nội dung AI vào textContent. Chính sách bảo mật nội dung hạn chế script và kết nối từ client về cùng nguồn.
+Máy chủ Node.js chạy trên Render (vùng Singapore, gói Free); đọc PORT và RENDER_EXTERNAL_URL của nền tảng. Giao diện và API được đóng gói vào một module dùng chung; bản Cloudflare Worker ESM trên Sites vẫn là phương án triển khai bổ sung. Khóa Gemini chỉ đọc từ biến môi trường máy chủ. API kiểm tra phương thức, nguồn yêu cầu và giới hạn độ dài đầu vào, có timeout; giao diện đưa nội dung AI vào textContent. Chính sách bảo mật nội dung hạn chế script và kết nối từ client về cùng nguồn.
 
 Đã có kiểm thử tự động cho chuẩn hóa dữ liệu, các tổ hợp sự kiện/màu/kiểu áo, lưu ý bối cảnh, prompt, schema và xử lý lỗi API. Nhánh Gemini thành công được kiểm thử bằng phản hồi giả lập. Chưa xác minh cuộc gọi Gemini thực tế do chưa có khóa API. Trước vận hành rộng cần bổ sung hạn mức bền vững phía máy chủ và giám sát chi phí.
 
@@ -72,17 +72,17 @@ Prompt được chia theo nhiệm vụ, ràng buộc và dữ liệu. Phần nhi
 
 ### URL video giới thiệu
 
-https://viet-phuc-remix-arena.t-rue0802370923999.chatgpt.site/video Video được dựng từ ảnh chụp các trạng thái thực của demo, có chú thích, không có lời thoại. Không phải bản ghi thao tác liên tục.
+https://viet-phuc-remix.onrender.com/video Video được dựng từ ảnh chụp các trạng thái thực của demo, có chú thích, không có lời thoại. Không phải bản ghi thao tác liên tục.
 
 ### URL demo
 
-https://viet-phuc-remix-arena.t-rue0802370923999.chatgpt.site
+https://viet-phuc-remix.onrender.com
 
 Demo đã triển khai công khai thành công và được kiểm tra bằng trình duyệt ngày 10/10/2026.
 
 ### URL repository
 
-Chưa có repository GitHub do đội cung cấp. Mã nguồn hoàn chỉnh ở thư mục dự án và được đồng bộ vào kho nguồn Sites khi xuất bản. Cần repository truy cập được với ban giám khảo; không dùng liên kết ZIP thay cho repository nếu đề thi yêu cầu kho mã nguồn.
+https://github.com/hongnam207/viet-phuc-remix — repository công khai, chứa mã nguồn, cấu hình Render, kiểm thử và tài liệu.
 
 ### URL chia sẻ cuộc trò chuyện với Gemini
 
@@ -96,5 +96,7 @@ Chưa có. Đội cần thực hiện cuộc trò chuyện thực tế trên Gem
 
 - Vietnam Tourism: https://www.vietnam.travel/vi/things-to-do/all-about-ao-dai-vietnams-national-dress
 - Google AI for Developers, structured output: https://ai.google.dev/gemini-api/docs/generate-content/structured-output
+
+
 
 

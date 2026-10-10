@@ -33,3 +33,8 @@ Nguồn văn hóa: https://www.vietnam.travel/vi/things-to-do/all-about-ao-dai-v
 Nguồn kỹ thuật: https://ai.google.dev/gemini-api/docs/structured-output
 
 Các cảnh báo là khuyến nghị của sản phẩm, không phải kết luận đúng/sai văn hóa. Cần người thực hành văn hóa rà soát trước khi mở rộng sang ngũ thân, tứ thân hoặc phục dựng theo địa phương.
+
+Demo: https://viet-phuc-remix.onrender.com
+Video: https://viet-phuc-remix.onrender.com/video
+Repository: https://github.com/hongnam207/viet-phuc-remix
+

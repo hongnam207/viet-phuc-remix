@@ -12,3 +12,6 @@ Ngày: 10/10/2026. Môi trường local Node.js, trình duyệt Codex.
 
 Ảnh minh chứng trong `docs/evidence/`. Chưa kiểm tra Gemini qua mạng bằng khóa thật; chưa có đánh giá chuyên gia văn hóa hoặc người dùng đại diện.
 
+
+Triển khai Render ngày 10/10/2026: trạng thái Live, health 200, API 200 với Origin HTTPS của Render, video range 206. Đã kiểm tra thay màu và nhấn gợi ý từ trình duyệt trên URL thật. Tổng kiểm thử tự động hiện tại: 10/10 đạt (thêm kiểm thử máy chủ Render).
+

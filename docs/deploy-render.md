@@ -13,4 +13,5 @@ Máy chủ dùng `RENDER_EXTERNAL_URL` do Render cấp để kiểm tra Origin c
 
 Nguồn: https://render.com/docs/deploy-node-express-app và https://render.com/docs/blueprint-spec
 
-Chưa có URL Render được xác minh cho đến khi tài khoản Render được kết nối và repository được cung cấp.
+Đã triển khai và xác minh Live ngày 10/10/2026: https://viet-phuc-remix.onrender.com. Repository: https://github.com/hongnam207/viet-phuc-remix. Service ID: srv-db56nhnavr4c73flca20. Video: https://viet-phuc-remix.onrender.com/video. Chưa cấu hình GEMINI_API_KEY, gợi ý biên tập hoạt động và có nhãn rõ. Gói Free có thể khởi động chậm sau thời gian không truy cập.
+
