@@ -5,3 +5,5 @@
 .upload-card:has(img:not([hidden])) .upload-zone{min-height:68px;flex-direction:row;flex-wrap:wrap;padding:12px;gap:10px}.upload-card:has(img:not([hidden])) .upload-icon{width:26px;height:26px;font-size:20px}.upload-card:has(img:not([hidden])) .upload-zone>span:last-of-type{width:100%;text-align:center}.upload-card:has(img:not([hidden])) .upload-zone strong{font-size:12px}
 
 .personalize-link{font-size:11px;display:block;text-align:center;margin:17px 0 3px;color:#607252}.personalize-link:hover{text-decoration:underline}#fitting{scroll-margin-top:24px}
+
+.figure.model-loading{position:relative}.figure.model-loading canvas{visibility:hidden}.figure.model-loading::after{content:"Đang chuẩn bị nhân vật của bạn…";position:absolute;inset:0;display:grid;place-items:center;color:#7f8072;font-size:12px;letter-spacing:.3px}

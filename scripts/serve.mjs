@@ -5,10 +5,10 @@ const port=Number(process.env.PORT||4173);
 const host=process.env.HOST||'0.0.0.0';
 const server=http.createServer(async(req,res)=>{try{
  const assetPath=new URL(req.url,'http://localhost').pathname;
- if(assetPath==='/ai-models/pose.task'||/^\/wasm\/vision_wasm_(?:nosimd_|module_)?internal\.(?:js|wasm)$/.test(assetPath)){
+ if(assetPath==='/models/human.glb'||assetPath==='/ai-models/pose.task'||/^\/wasm\/vision_wasm_(?:nosimd_|module_)?internal\.(?:js|wasm)$/.test(assetPath)){
   if(!['GET','HEAD'].includes(req.method)){res.writeHead(405);res.end();return;}
   const data=await readFile(new URL('../dist/public'+assetPath,import.meta.url));
-  res.writeHead(200,{'Content-Type':assetPath.endsWith('.wasm')?'application/wasm':assetPath.endsWith('.js')?'text/javascript':'application/octet-stream','Content-Length':data.length,'Cache-Control':'public, max-age=86400','X-Content-Type-Options':'nosniff'});res.end(req.method==='HEAD'?undefined:data);return;
+  res.writeHead(200,{'Content-Type':assetPath.endsWith('.glb')?'model/gltf-binary':assetPath.endsWith('.wasm')?'application/wasm':assetPath.endsWith('.js')?'text/javascript':'application/octet-stream','Content-Length':data.length,'Cache-Control':'public, max-age=86400','X-Content-Type-Options':'nosniff'});res.end(req.method==='HEAD'?undefined:data);return;
  }
  if(req.url==='/healthz'){res.writeHead(200,{'Content-Type':'application/json'});res.end('{"status":"ok"}');return;}
  const chunks=[];let size=0;

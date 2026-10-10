@@ -1,0 +1,30 @@
+{
+  "license": "CC0-1.0",
+  "assetRepository": "s20220526/makehuman-assets",
+  "assetRevision": "8cf9645b975a98eea056b140df11a1d278da0d10",
+  "generatedSHA256": "2ce0a3a0b769731533a13f029ddbc87fe581414b25f8c43ab5c2428efa3670a8",
+  "sources": {
+    "asian-female-young.target": "095fe79694fa19e1fe98d93009ec116199bd524e081c640351a10eccf2cca1eb",
+    "assets-commit.txt": "c9776f59273a1ef5808402e929845f033763865c4def7aa999d90024f9036aab",
+    "ASSETS-LICENSE.txt": "a2010f343487d3f7618affe54f789f5487602331c0a8d03f49e9a7c547cf0499",
+    "ASSETS-README.md": "400def805e639a6365d14ecf0fedf926c5b338d63c6a62610f9473cacecb7a23",
+    "base.obj": "8e761e6624b8f54536409135d1636da63b32486a90d4897f84e121d144f6fb4c",
+    "bob01.mhclo": "a295b11ab6c7808afa1e01d0c79fb595bbbd7885f65252766486c9fcf6d158c5",
+    "bob01.mhmat": "9c3015044a832fb9a72a5d2f28218914ebfbdf6725cfd237cc53a3d95f054e3b",
+    "bob01.obj": "d7fb73806f47ee37ba3c37bcfadff40a91ba99635d08c3e02d94b4acbf97c231",
+    "bob01_diffuse.png": "2b38bc7a028e06e8e633accb7fe2dd1b2bacbb9d32463df73f39f82e63ef9009",
+    "caucasian-female-young.target": "118379f6e8ba9266247fdb8788a20e1df40a239f97ced0b9905bcbcc74f6e820",
+    "default.mhskel": "99f179bce0aa850b45d4191a1d0d234c5851f881c057439470ded3bddf729a24",
+    "default_weights.mhw": "0f3641d651ae3d00ad6b4ccee43142edb109d3bd909d27d9e4139ef1beed8625",
+    "eyes.mhclo": "b183cfe37120ab726f9b3f2ea6cd3a64c44ce7b4bd91a77c841cf70c04f83a0d",
+    "eyes.obj": "da2493215b708a344c33dc72f2a9a5b8fa985dcc5a70ad3b208995cf871da8e1",
+    "eyes.png": "3f43a4de70e446186dac1760cfa01dfe36d530ed7564208455395b0ebcdf788a",
+    "LICENSE-CC0.md": "f6089cba01cb570a24712b41ab8a586ccd3cc5ef53dc266ca50b95c288956d2c",
+    "long01.mhclo": "94ecbebfd834da2cbee2ce90b730972590eb22a252ecd9592038ea736e063646",
+    "long01.mhmat": "74ec88267e679d316f8037a074511ffc887b27e198ea381d0ae4a3f180f96760",
+    "long01.obj": "7f1d6dadbdf9e96435251955d6657e77ea5433c9bc7c85a5c5f5e4eae0cb9a8c",
+    "long01_diffuse.png": "e8dc25d90f8f62467e8630420e1240a400d070054fb7c3f1d3f7bf3e457d6c2c",
+    "skin.png": "1d82f782b7d2da732229633bd2d14754d873fff53cdb1d088977bcf67ae19dde",
+    "universal-female-young-averagemuscle-averageweight.target": "4ba5396ddabda448ece15650a566fbebfbb10239256ccb201e8f883429e12249"
+  }
+}

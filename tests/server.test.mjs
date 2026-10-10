@@ -7,9 +7,9 @@ test('Render adapter binds PORT and preserves public HTTPS origin',async()=>{
  try{
   const port=await new Promise((resolve,reject)=>{const timeout=setTimeout(()=>reject(new Error('Server startup timeout')),5000);child.once('error',reject);child.stdout.on('data',chunk=>{const match=String(chunk).match(/Listening on 0\.0\.0\.0:(\d+)/);if(match){clearTimeout(timeout);resolve(Number(match[1]));}});});
   const base='http://127.0.0.1:'+port;
-  assert.equal((await fetch(base+'/')).status,200);
+  const page=await fetch(base+'/');assert.equal(page.status,200);assert.match(page.headers.get('content-security-policy'),/connect-src 'self' blob:/);
   const health=await fetch(base+'/healthz');assert.deepEqual(await health.json(),{status:'ok'});
-  for(const [path,type,minBytes] of [['/ai-models/pose.task','application/octet-stream',5000000],['/wasm/vision_wasm_internal.wasm','application/wasm',10000000],['/wasm/vision_wasm_internal.js','text/javascript',100000]]){const asset=await fetch(base+path,{method:'HEAD'});assert.equal(asset.status,200);assert.equal(asset.headers.get('content-type'),type);assert.ok(Number(asset.headers.get('content-length'))>minBytes);assert.equal((await asset.arrayBuffer()).byteLength,0);}
+  for(const [path,type,minBytes] of [['/models/human.glb','model/gltf-binary',7000000],['/ai-models/pose.task','application/octet-stream',5000000],['/wasm/vision_wasm_internal.wasm','application/wasm',10000000],['/wasm/vision_wasm_internal.js','text/javascript',100000]]){const asset=await fetch(base+path,{method:'HEAD'});assert.equal(asset.status,200);assert.equal(asset.headers.get('content-type'),type);assert.ok(Number(asset.headers.get('content-length'))>minBytes);assert.equal((await asset.arrayBuffer()).byteLength,0);}
   assert.equal((await fetch(base+'/wasm/package.json')).status,404);
   const response=await fetch(base+'/api/recommend',{method:'POST',headers:{Origin:'https://render-demo.test','Content-Type':'application/json'},body:'{}'});assert.equal(response.status,200);assert.equal((await response.json()).mode,'editorial');
   assert.equal((await fetch(base+'/api/recommend',{method:'POST',headers:{Origin:'https://another.test'},body:'{}'})).status,403);

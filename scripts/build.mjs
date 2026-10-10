@@ -1,13 +1,15 @@
+import {createHash} from 'node:crypto';
 import {readFile,mkdir,writeFile,cp} from 'node:fs/promises';
 import {build} from 'esbuild';
 const read=p=>readFile(p,'utf8');
 const assets={};for(const name of ['index.html','style.css','app.js','core.js','favicon.svg'])assets['/'+(name==='index.html'?'':name)]=await read('src/'+name);
 assets['/style.css']+='\n'+await read('src/fitting.css');
-const app=await build({entryPoints:['src/app.js'],bundle:true,format:'esm',minify:true,write:false,target:'es2022',legalComments:'inline'});
+const app=await build({entryPoints:['src/app.js'],define:{__HUMAN_MODEL_VERSION__:JSON.stringify(createHash('sha256').update(await readFile('assets/human.glb')).digest('hex').slice(0,12))},bundle:true,format:'esm',minify:true,write:false,target:'es2022',legalComments:'inline'});
 assets['/app.js']=app.outputFiles[0].text;
 const photo=await build({entryPoints:['src/photo-worker.js'],bundle:true,format:'iife',minify:true,write:false,target:'es2022',legalComments:'inline'});
 assets['/photo-worker.js']=photo.outputFiles[0].text;
-assets['/licenses.txt']='Three.js\n'+await read('assets/THREE-LICENSE.txt')+'\nMediaPipe Tasks Vision\n'+await read('assets/APACHE-2.0-LICENSE.txt');
+assets['/licenses.txt']='Three.js\n'+await read('assets/THREE-LICENSE.txt')+'\nMediaPipe Tasks Vision\n'+await read('assets/APACHE-2.0-LICENSE.txt')+'\nMakeHuman model assets (CC0-1.0)\n'+await read('assets/human-source/LICENSE-CC0.md');
+await mkdir('dist/public/models',{recursive:true});await cp('assets/human.glb','dist/public/models/human.glb');
 await mkdir('dist/public/ai-models',{recursive:true});await cp('assets/pose_landmarker_lite.task','dist/public/ai-models/pose.task');
 await cp('node_modules/@mediapipe/tasks-vision/wasm','dist/public/wasm',{recursive:true});
 const core=(await read('src/core.js')).replace(/export /g,'');const api=(await read('server/api.js')).replace(/^import[^\n]+\n/,'').replace(/export /g,'');
