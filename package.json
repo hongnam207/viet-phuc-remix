@@ -1,1 +1,1 @@
-{"name":"viet-phuc-remix","version":"1.0.0","private":true,"type":"module","scripts":{"build":"node scripts/build.mjs","start":"node scripts/serve.mjs","test":"node --test tests/*.test.mjs"}}
+{"name":"viet-phuc-remix","version":"1.0.0","private":true,"type":"module","scripts":{"build":"node scripts/build.mjs","start":"node scripts/serve.mjs","test":"node --test tests/*.test.mjs"},"dependencies":{"@mediapipe/tasks-vision":"^1.1.0","three":"^0.186.1"},"devDependencies":{"esbuild":"^0.28.2"}}

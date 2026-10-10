@@ -9,6 +9,8 @@ test('Render adapter binds PORT and preserves public HTTPS origin',async()=>{
   const base='http://127.0.0.1:'+port;
   assert.equal((await fetch(base+'/')).status,200);
   const health=await fetch(base+'/healthz');assert.deepEqual(await health.json(),{status:'ok'});
+  for(const [path,type,minBytes] of [['/ai-models/pose.task','application/octet-stream',5000000],['/wasm/vision_wasm_internal.wasm','application/wasm',10000000],['/wasm/vision_wasm_internal.js','text/javascript',100000]]){const asset=await fetch(base+path,{method:'HEAD'});assert.equal(asset.status,200);assert.equal(asset.headers.get('content-type'),type);assert.ok(Number(asset.headers.get('content-length'))>minBytes);assert.equal((await asset.arrayBuffer()).byteLength,0);}
+  assert.equal((await fetch(base+'/wasm/package.json')).status,404);
   const response=await fetch(base+'/api/recommend',{method:'POST',headers:{Origin:'https://render-demo.test','Content-Type':'application/json'},body:'{}'});assert.equal(response.status,200);assert.equal((await response.json()).mode,'editorial');
   assert.equal((await fetch(base+'/api/recommend',{method:'POST',headers:{Origin:'https://another.test'},body:'{}'})).status,403);
   assert.equal((await fetch(base+'/api/recommend',{method:'POST',body:'x'.repeat(5000)})).status,413);
