@@ -56,7 +56,7 @@ API dùng phương thức generateContent và yêu cầu JSON gồm title, descr
 
 Gemini không được dùng làm nguồn xác nhận lịch sử, nghi lễ hay kết luận về tính phù hợp văn hóa. Thẻ thông tin áo dài dẫn nguồn Vietnam Tourism và giữ nguyên khi AI trả lời. Người dùng được nhắc kiểm tra quy định thực tế của trường hoặc ban tổ chức sự kiện.
 
-Trạng thái hiện tại: đã triển khai mã tích hợp và kiểm thử bằng phản hồi giả lập; chưa có GEMINI_API_KEY nên bản chạy dùng gợi ý biên tập. Đội cần cấu hình khóa và kiểm tra một cuộc gọi thật trước khi trình bày rằng Gemini đang hoạt động trực tiếp. Việc xây dựng demo trong phiên này thực hiện bằng Codex; không thể dùng phiên này thay cho liên kết cuộc trò chuyện Gemini theo yêu cầu đề thi.
+Trạng thái hiện tại: đã triển khai mã tích hợp và kiểm thử bằng phản hồi giả lập; chưa có GEMINI_API_KEY nên bản chạy dùng gợi ý biên tập. Đội cần cấu hình khóa và kiểm tra một cuộc gọi thật trước khi trình bày rằng Gemini đang hoạt động trực tiếp. Demo được xây dựng bằng Codex. Ngày 10/10/2026 đã trao đổi thực tế với Gemini trên web để phản biện UX, rủi ro văn hóa, đề xuất prompt và thử JSON cho bộ áo đỏ son cách tân phối sneaker khi dự cưới. Cuộc trò chuyện có ba lượt yêu cầu, gồm hai lượt rà soát và hiệu chỉnh, được chia sẻ công khai trong phần Minh chứng. Đây là thử nghiệm hội thoại, không phải xác minh API ứng dụng.
 
 ### Chiến lược và quy trình prompting
 
@@ -66,7 +66,9 @@ Prompt được chia theo nhiệm vụ, ràng buộc và dữ liệu. Phần nhi
 
 Đã kiểm thử việc lọc lựa chọn không hợp lệ, loại bỏ dữ liệu ngoài danh mục, phát hiện đầu ra sai schema và giữ nguyên lưu ý bối cảnh sau phản hồi Gemini giả lập. Các ca rà soát thủ công được đề xuất gồm: đỏ son khi dự cưới; cách tân/sneaker khi dự nghi lễ; kỷ yếu có quy định trường; nhiều phụ kiện; yêu cầu AI đưa kết luận lịch sử chưa có nguồn.
 
-Đội dự kiến chạy các ca này trên Gemini thật, chấm theo bốn tiêu chí: bám lựa chọn, hữu ích, không bịa thông tin văn hóa và ngắn gọn. Sau đó sửa prompt theo lỗi quan sát được, lưu ví dụ trước/sau và kiểm tra lại. Đây là quy trình cải tiến đề xuất; chưa có dữ liệu chứng minh đã thực hiện vòng tối ưu với Gemini thật. Ràng buộc prompt giảm rủi ro nhưng không bảo đảm mọi câu trả lời đúng về văn hóa; cần rà soát con người.
+Đã thực hiện một vòng phản biện trên Gemini web: phản hồi đầu đưa ví dụ màu/phụ kiện ngoài danh mục và khái quát văn hóa thiếu nguồn; đội cung cấp danh mục thật và yêu cầu loại bỏ. Lần thử JSON tiếp theo dịch coral thành “san hô” thay vì nhãn “Đỏ son” và suy đoán normalize() để event rỗng; đội bổ sung nhãn và đoạn mã fallback. Phản hồi cuối dùng đúng nhãn, tư vấn thẩm mỹ hiện đại, nhắc hỏi chủ tiệc và ưu tiên yêu cầu ban tổ chức; ca injection được sửa thành event mặc định tet. Đây là hiệu chỉnh trong hội thoại, chưa áp dụng thay đổi prompt vào mã triển khai hoặc chạy đánh giá API thật. Nhật ký trước/sau lưu trong docs/gemini-minh-chung.md.
+
+Đội dự kiến chạy tiếp bộ ca API với khóa thật, chấm theo bốn tiêu chí: bám lựa chọn, hữu ích, không bịa thông tin văn hóa và ngắn gọn. Ràng buộc prompt giảm rủi ro nhưng không bảo đảm mọi câu trả lời đúng về văn hóa; cần rà soát con người.
 
 ## III. Minh chứng
 
@@ -86,7 +88,9 @@ https://github.com/hongnam207/viet-phuc-remix — repository công khai, chứa 
 
 ### URL chia sẻ cuộc trò chuyện với Gemini
 
-Chưa có. Đội cần thực hiện cuộc trò chuyện thực tế trên Gemini, kiểm tra nội dung trước khi chia sẻ và dán liên kết chia sẻ vào trường này. Không tạo liên kết minh chứng giả.
+https://share.gemini.google/5u7oVlDwFkgw
+
+Cuộc trò chuyện “Phản biện và Prompt Tư vấn Áo Dài”, đã xuất bản công khai ngày 10/10/2026; có phản biện, lần thử JSON và hai lượt hiệu chỉnh dựa trên danh mục/mã thực tế. Đã mở liên kết chia sẻ và xác nhận đủ ba lượt trao đổi.
 
 ## Cam kết để đội rà soát
 
