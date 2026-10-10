@@ -1,0 +1,9 @@
+import {mkdir,writeFile} from 'node:fs/promises';
+import {spawnSync} from 'node:child_process';
+await mkdir('docs/video-frames',{recursive:true});
+const scenes=[['01-studio.jpg','VIỆT PHỤC REMIX','Tà áo quen. Chất riêng mới.'],['06-studio-detail.jpg','CHỌN · PHỐI · KHÁM PHÁ','Chọn sự kiện, kiểu áo, màu và phụ kiện. Xem mockup cập nhật.'],['07-context-detail.jpg','SÁNG TẠO CÓ NGỮ CẢNH','Thông tin có nguồn. Cân nhắc yêu cầu của trường, chủ tiệc và sự kiện.'],['09-compare-detail.jpg','LOOKBOOK CỦA BẠN','Lưu và so sánh hai look. Tải mockup SVG, chia sẻ liên kết phối đồ.'],['08-remix-detail.jpg','GEMINI + NỘI DUNG BIÊN TẬP','API đã triển khai; chưa có khóa thật. Demo ghi rõ gợi ý từ bộ quy tắc.']];
+function run(args){const r=spawnSync('ffmpeg',args,{encoding:'utf8'});if(r.status!==0)throw new Error(r.stderr);}
+for(let i=0;i<scenes.length;i++){const [image,title,caption]=scenes[i];await writeFile('docs/video-frames/title-'+i+'.txt',title);await writeFile('docs/video-frames/caption-'+i+'.txt',caption);const filter=`scale=1280:800:force_original_aspect_ratio=decrease,pad=1280:960:(ow-iw)/2:100:color=0xfaf9f4,drawtext=fontfile='C\\:/Windows/Fonts/arial.ttf':textfile='docs/video-frames/title-${i}.txt':fontsize=30:fontcolor=0xbd482d:x=40:y=35,drawtext=fontfile='C\\:/Windows/Fonts/arial.ttf':textfile='docs/video-frames/caption-${i}.txt':fontsize=20:fontcolor=0x292a24:x=40:y=925`;
+run(['-y','-loglevel','error','-loop','1','-framerate','8','-i','docs/evidence/'+image,'-t','12','-vf',filter,'-c:v','libx264','-preset','fast','-crf','26','-pix_fmt','yuv420p','docs/video-frames/scene-'+i+'.mp4']);}
+await writeFile('docs/video-frames/concat.txt',scenes.map((_,i)=>`file 'scene-${i}.mp4'`).join('\n'));
+run(['-y','-loglevel','error','-f','concat','-safe','0','-i','docs/video-frames/concat.txt','-c','copy','-movflags','+faststart','docs/viet-phuc-remix-demo.mp4']);console.log('Created 60-second captioned demo video.');
