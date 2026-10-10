@@ -1,0 +1,3 @@
+# Keep downloaded source assets byte-stable for provenance checks on every OS.
+assets/human-source/* -text
+assets/human.glb -text
