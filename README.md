@@ -17,7 +17,7 @@ Mở http://localhost:4173. Mặc định gợi ý dựa trên quy tắc biên t
 
 ## Triển khai Render
 
-`render.yaml` cấu hình Node Web Service ở Singapore, gói Free, build `npm run build`, start `npm start`, health check `/healthz`. Máy chủ đọc `PORT`, lắng nghe `0.0.0.0` và dùng `RENDER_EXTERNAL_URL` để xử lý Origin sau HTTPS proxy. Xem `docs/deploy-render.md`.
+`render.yaml` cấu hình Node Web Service ở Singapore, gói Free, build `npm ci --include=dev && npm run build`, start `npm start`, health check `/healthz`. Máy chủ đọc `PORT`, lắng nghe `0.0.0.0` và dùng `RENDER_EXTERNAL_URL` để xử lý Origin sau HTTPS proxy. Nếu service tạo thủ công, cần cập nhật Build Command trong Render Settings. Xem `docs/deploy-render.md`.
 
 ## Phạm vi demo
 
