@@ -1,10 +1,12 @@
 export default {
  async fetch(request,env={}){
   const path=new URL(request.url).pathname;
+  if(path==='/api/stylist')return stylist(request,env);
+  if(path.startsWith('/api/community'))return community(request,env);
   if(path==='/api/recommend')return recommend(request,env);
   if(path==='/api/tryon')return tryOn(request,env);
   if(path==='/api/weather')return forecast(request);
-  if(path==='/api/capabilities')return Response.json({imageTryOn:!!env.GEMINI_API_KEY},{headers:{'Cache-Control':'no-store'}});
+  if(path==='/api/capabilities')return Response.json({imageTryOn:!!env.GEMINI_API_KEY,stylist:!!env.GEMINI_API_KEY,community:communityReady(env)},{headers:{'Cache-Control':'no-store'}});
   if(!['GET','HEAD'].includes(request.method))return new Response('Method not allowed',{status:405});
   if(path==='/demo.mp4'&&VIDEO){
    const bytes=Uint8Array.from(atob(VIDEO),c=>c.charCodeAt(0));
