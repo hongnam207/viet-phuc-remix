@@ -20,7 +20,7 @@ Trong Render > Environment, thêm các giá trị sau. Không gửi khóa vào c
 | Biến | Giá trị |
 | --- | --- |
 | GEMINI_API_KEY | Khóa dự án Google có quyền gọi model tạo ảnh |
-| GEMINI_MODEL | gemini-2.5-flash hoặc model văn bản có quyền sử dụng |
+| GEMINI_MODEL | gemini-3.5-flash-lite hoặc model văn bản có quyền sử dụng |
 | GEMINI_IMAGE_MODEL | gemini-2.5-flash-image hoặc model tạo ảnh tương thích |
 | TRYON_DAILY_LIMIT | 30 mặc định, điều chỉnh theo ngân sách dự án |
 | SUPABASE_URL | URL HTTPS của dự án, dạng https://PROJECT.supabase.co, không có dấu / cuối |
@@ -42,3 +42,5 @@ Giới hạn gửi bài 5/giờ và báo cáo 10/giờ theo địa chỉ máy kh
 Nguồn kỹ thuật: [Gemini API](https://ai.google.dev/api/generate-content), [Supabase REST](https://supabase.com/docs/guides/api), [Supabase API keys](https://supabase.com/docs/guides/getting-started/api-keys), [Supabase RLS](https://supabase.com/docs/guides/database/postgres/row-level-security).
 
 Nguồn danh bạ: [La Sen Vũ](https://aodailasenvu.com.vn/), [Nhi Nhi](https://cophucnhinhi.com/), [HiZu](https://hizu.com.vn/products/cho-thue-ao-dai-trang-quan-trang-huong-boutique).
+
+Model văn bản mặc định cập nhật sang gemini-3.5-flash-lite theo khuyến nghị cho dự án mới trong [lịch vòng đời model của Google](https://ai.google.dev/gemini-api/docs/deprecations/). Không bật billing hoặc nâng cấp gói khi đổi model. API vẫn phụ thuộc quyền và hạn mức của dự án.

@@ -13,7 +13,7 @@ npm test
 npm start
 ```
 
-Mở http://localhost:4173. Mặc định gợi ý dựa trên quy tắc biên tập. Để gọi Gemini, đặt biến môi trường `GEMINI_API_KEY` ở máy chủ, tùy chọn `GEMINI_MODEL` (mặc định `gemini-2.5-flash`), rồi khởi động lại. Không nhập khóa vào trình duyệt hoặc commit khóa. Trên Sites, cấu hình biến tương ứng bằng runtime secrets.
+Mở http://localhost:4173. Mặc định gợi ý dựa trên quy tắc biên tập. Để gọi Gemini, đặt biến môi trường `GEMINI_API_KEY` ở máy chủ, tùy chọn `GEMINI_MODEL` (mặc định `gemini-3.5-flash-lite`), rồi khởi động lại. Không nhập khóa vào trình duyệt hoặc commit khóa. Trên Sites, cấu hình biến tương ứng bằng runtime secrets.
 
 ## Triển khai Render
 
